@@ -63,6 +63,8 @@ static const char *browsercmd[] = { "chromium", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+  { MODKEY,                       XK_i,      view_adjacent,  { .i = +1 } },
+	{ MODKEY,                       XK_u,      view_adjacent,  { .i = -1 } },
   {ControlMask|ShiftMask,         XK_b,      spawn,          {.v = browsercmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
@@ -106,6 +108,8 @@ static Key keys[] = {
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
+  { ClkTagBar,            0,              Button4,        view_adjacent,     { .i = -1 } },
+	{ ClkTagBar,            0,              Button5,        view_adjacent,     { .i = +1 } },
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
